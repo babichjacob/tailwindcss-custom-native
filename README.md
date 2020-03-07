@@ -13,27 +13,21 @@ npm install --save-dev tailwindcss-custom-native
 With this Tailwind configuration,
 
 ```js
-const customNative = require('tailwindcss-custom-native');
-
 module.exports = {
   theme: {
-    ...,
-
     // This utility is not native to Tailwind,
     mixBlendMode: {
       'screen': 'screen',
       'overlay': 'overlay',
-    }
+    },
   },
-
-  ...
 
   plugins: [
     // So we define it down here!
-    customNative({ key: 'mixBlendMode' }),
+    require('tailwindcss-custom-native')({ key: 'mixBlendMode' }),
     // There are extra parameters for further customization -- see the advanced usage section
-  ]
-}
+  ],
+};
 ```
 
 this CSS is generated:
@@ -55,29 +49,23 @@ When no variants are specified in the `variants` key of your config, no variants
 If you want variants (in the same config as above):
 
 ```js
-const customNative = require('tailwindcss-custom-native');
-
 module.exports = {
   theme: {
-    ...,
-
     mixBlendMode: {
       'screen': 'screen',
       'overlay': 'overlay',
-    }
+    },
   },
 
   variants: {
-    ...,
-
     // All variants, whether added by plugin or not, are at your disposal
     mixBlendMode: ['hover', 'focus'],
   },
 
   plugins: [
-    customNative({ key: 'mixBlendMode' }),
-  ]
-}
+    require('tailwindcss-custom-native')({ key: 'mixBlendMode' }),
+  ],
+};
 ```
 
 you get this additional CSS:
@@ -100,7 +88,7 @@ you get this additional CSS:
 
 ## Advanced usage
 
-The complete function signature of `customNative` is:
+The complete function signature of this plugin is:
 
 ```js
 function({ key, property, rename, addUtilitiesOptions={} }) {...}
@@ -122,32 +110,30 @@ Where each parameter means:
 
   If set to the empty string (`''`), then there is no prefix and each generated class is just the value name.
 
-- `addUtilitiesOptions` - Extra options to pass to the [`addUtilities`](https://next.tailwindcss.com/docs/plugins/#adding-utilities) function call.
+- `addUtilitiesOptions` (optional, object) - Extra options to pass to the [`addUtilities`](https://tailwindcss.com/docs/plugins/#adding-utilities) function call.
 
-  As of Tailwind 1.1.2, this just means the [`respectPrefix` and `respectImportant`](https://next.tailwindcss.com/docs/plugins/#prefix-and-important-preferences) options
+  As of Tailwind 1.2.0, this just means the [`respectPrefix` and `respectImportant`](https://tailwindcss.com/docs/plugins/#prefix-and-important-preferences) options
 
 ## Examples
 
 Specify `rename: ''` so you can write `blur-4` and `grayscale` instead of `filter-blur-4` and `filter-grayscale`:
 
 ```js
-const customNative = require("tailwindcss-custom-native");
-
 module.exports = {
   theme: {
     extend: {
       filter: {
         "grayscale": "grayscale(100%)",
-        "blur-4": "blur(1rem)"
-      }
-    }
+        "blur-4": "blur(1rem)",
+      },
+    },
   },
   variants: {
-    filter: ["responsive"]
+    filter: ["responsive"],
   },
   plugins: [
-    customNative({ key: "filter", rename: "" }),
-  ]
+    require("tailwindcss-custom-native")({ key: "filter", rename: "" }),
+  ],
 };
 ```
 
@@ -177,8 +163,6 @@ module.exports = {
 Let's say you want a section specifically for blur utilities, because they *really* have nothing to do with other kinds of CSS filters. Use `'blur'` as the `key` and `'filter'` as the `property`:
 
 ```js
-const customNative = require('tailwindcss-custom-native');
-
 module.exports = {
   theme: {
     extend: {
@@ -186,17 +170,17 @@ module.exports = {
         '0': 'blur(0)',
         '1': 'blur(0.25rem)',
         '2': 'blur(0.5rem)',
-        ... // as many numbers as you want
-      }
-    }
+        // ... as many numbers as you want
+      },
+    },
   },
   variants: {
     blur: ['active'],
   },
   plugins: [
-    customNative({ key: 'blur', property: 'filter' }),
-  ]
-}
+    require('tailwindcss-custom-native')({ key: 'blur', property: 'filter' }),
+  ],
+};
 ```
 
 ```css
@@ -227,11 +211,9 @@ module.exports = {
 /* and so on for the other numbers you specified */
 ```
 
-In practice, you will probably use the plugin more than once because you need to create multiple custom utilities. Since version 0.1.0, you can chain multiple configurations into a single `customNative` call:
+In practice, you will probably use the plugin more than once because you need to create multiple custom utilities, so chain multiple options into a single plugin call:
 
 ```js
-const customNative = require("tailwindcss-custom-native");
-
 module.exports = {
   theme: {
     listStyleImage: {
@@ -241,15 +223,15 @@ module.exports = {
     scrollBehavior: {
       immediately: "auto",
       smoothly: "smooth",
-    }
+    },
   },
   variants: {},
   plugins: [
-    customNative(
+    require("tailwindcss-custom-native")(
       { key: "listStyleImage", rename: "list" },
       { key: "scrollBehavior", rename: "scroll" },
     ),
-  ]
+  ],
 };
 ```
 
@@ -285,17 +267,16 @@ module.exports = {
       pseudo: {
         before: "before",
         after: "after",
-      }
-    }
+      },
+    },
   },
   variants: {
-    content: ["before", "after"]
+    content: ["before", "after"],
   },
   plugins: [
-    // Untested: this probably has to come first so that it can register the variant
     require("tailwindcss-pseudo")(),
     require("tailwindcss-custom-native")({ key: "content" }),
-  ]
+  ],
 };
 ```
 
