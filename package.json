@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-custom-native",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Write your Tailwind CSS configuration file with your own custom utilities as though they were native to the framework",
   "author": "Jacob Babich <jacobbabichpublic+git@gmail.com>",
   "license": "MIT",
@@ -11,9 +11,7 @@
   "bugs": "https://github.com/babichjacob/tailwindcss-custom-native/issues",
   "homepage": "https://github.com/babichjacob/tailwindcss-custom-native",
   "dependencies": {
-    "lodash": "^4.17.15"
-  },
-  "peerDependencies": {
+    "lodash": "^4.17.15",
     "tailwindcss": "^1.2.0"
   }
 }
