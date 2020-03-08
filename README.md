@@ -20,12 +20,15 @@ module.exports = {
       'screen': 'screen',
       'overlay': 'overlay',
     },
+    // So we define it here!
+    customUtilities: {
+      mixBlendMode: {},
+      // There are extra parameters for further customization -- see the advanced usage section
+    },
   },
 
   plugins: [
-    // So we define it down here!
-    require('tailwindcss-custom-native')({ key: 'mixBlendMode' }),
-    // There are extra parameters for further customization -- see the advanced usage section
+    require('tailwindcss-custom-native'),
   ],
 };
 ```
@@ -55,6 +58,9 @@ module.exports = {
       'screen': 'screen',
       'overlay': 'overlay',
     },
+    customUtilities: {
+      mixBlendMode: {},
+    },
   },
 
   variants: {
@@ -63,7 +69,7 @@ module.exports = {
   },
 
   plugins: [
-    require('tailwindcss-custom-native')({ key: 'mixBlendMode' }),
+    require('tailwindcss-custom-native'),
   ],
 };
 ```
@@ -88,10 +94,15 @@ you get this additional CSS:
 
 ## Advanced usage
 
-The complete function signature of this plugin is:
+This plugin expects configuration of the form
 
 ```js
-function({ key, property, rename, addUtilitiesOptions={} }) {...}
+theme: {
+  customUtilities: {
+    key: { property, rename, addUtilitiesOptions },
+    // Keep repeating this pattern for more utilities
+  },
+}
 ```
 
 Where each parameter means:
@@ -122,6 +133,10 @@ Specify `rename: ''` so you can write `blur-4` and `grayscale` instead of `filte
 module.exports = {
   theme: {
     extend: {
+      customUtilities: {
+        filter: { rename: "" },
+      },
+
       filter: {
         "grayscale": "grayscale(100%)",
         "blur-4": "blur(1rem)",
@@ -132,7 +147,7 @@ module.exports = {
     filter: ["responsive"],
   },
   plugins: [
-    require("tailwindcss-custom-native")({ key: "filter", rename: "" }),
+    require("tailwindcss-custom-native"),
   ],
 };
 ```
@@ -172,13 +187,17 @@ module.exports = {
         '2': 'blur(0.5rem)',
         // ... as many numbers as you want
       },
+
+      customUtilities: {
+        blur: { property: 'filter' },
+      },
     },
   },
   variants: {
     blur: ['active'],
   },
   plugins: [
-    require('tailwindcss-custom-native')({ key: 'blur', property: 'filter' }),
+    require('tailwindcss-custom-native'),
   ],
 };
 ```
@@ -211,11 +230,16 @@ module.exports = {
 /* and so on for the other numbers you specified */
 ```
 
-In practice, you will probably use the plugin more than once because you need to create multiple custom utilities, so chain multiple options into a single plugin call:
+In practice, you will probably need more than one custom utility, so just add another to the list:
 
 ```js
 module.exports = {
   theme: {
+    customUtilities: {
+      listStyleImage: { rename: "list" },
+      scrollBehavior: { rename: "scroll" },
+    },
+
     listStyleImage: {
       checkmark: "url('/img/checkmark.png')",
     },
@@ -227,10 +251,7 @@ module.exports = {
   },
   variants: {},
   plugins: [
-    require("tailwindcss-custom-native")(
-      { key: "listStyleImage", rename: "list" },
-      { key: "scrollBehavior", rename: "scroll" },
-    ),
+    require("tailwindcss-custom-native"),
   ],
 };
 ```
@@ -263,6 +284,10 @@ module.exports = {
         checkmark: "url(/img/checkmark.png)",
       },
 
+      customUtilities: {
+        content: {},
+      },
+
       // This is tailwindcss-pseudo config
       pseudo: {
         before: "before",
@@ -275,7 +300,7 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-pseudo")(),
-    require("tailwindcss-custom-native")({ key: "content" }),
+    require("tailwindcss-custom-native"),
   ],
 };
 ```
