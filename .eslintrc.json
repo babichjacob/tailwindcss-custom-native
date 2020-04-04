@@ -1,0 +1,41 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "no-console": "off",
+        "no-param-reassign": "off",
+        "no-tabs": [
+            "error",
+            {
+                "allowIndentationTabs": true
+            }
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["test.js"],
+            "env": {"jest": true}
+        }
+    ]
+}

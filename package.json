@@ -1,7 +1,15 @@
 {
   "name": "tailwindcss-custom-native",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Write your Tailwind CSS configuration file with your own custom utilities as though they were native to the framework",
+  "keywords": [
+    "plugin",
+    "tailwind",
+    "tailwindcss",
+    "tailwindcss-plugin",
+    "custom-utilities",
+    "custom-native"
+  ],
   "author": "Navith <navithnavithnavith+git@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -10,8 +18,23 @@
   },
   "bugs": "https://github.com/SirNavith/tailwindcss-custom-native/issues",
   "homepage": "https://github.com/SirNavith/tailwindcss-custom-native",
+  "scripts": {
+    "eslint": "node ./node_modules/.bin/eslint",
+    "jest": "node ./node_modules/.bin/jest",
+    "lint": "eslint --fix ./*.js",
+    "test": "npm run jest"
+  },
   "dependencies": {
     "lodash": "^4.17.15",
     "tailwindcss": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^25.2.7",
+    "jest-matcher-css": "^1.1.0",
+    "postcss": "^7.0.27",
+    "tailwindcss-pseudo": "^1.0.3"
   }
 }
