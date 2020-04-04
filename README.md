@@ -175,6 +175,8 @@ module.exports = {
 /* ... and so on for the other screens */
 ```
 
+Any property named with a `-` in front will have that moved to the front of the generated class name, just like the native [`margin`](https://tailwindcss.com/docs/margin/#negative-values) or [`z-index`](https://tailwindcss.com/docs/z-index/#negative-values) utilities do.
+
 Let's say you want a section specifically for blur utilities, because they *really* have nothing to do with other kinds of CSS filters. Use `'blur'` as the `key` and `'filter'` as the `property`:
 
 ```js
@@ -258,7 +260,7 @@ module.exports = {
 
 ```css
 .list-checkmark {
-  list-style-image: url("/img/checkmark.png");
+  list-style-image: url('/img/checkmark.png');
 }
 
 .scroll-immediately {
