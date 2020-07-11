@@ -1,4 +1,5 @@
 dependencies:
+  lodash: 4.17.19
   tailwindcss: 1.4.6
 devDependencies:
   '@types/assert': 1.5.1
@@ -12,7 +13,6 @@ devDependencies:
   eslint-plugin-import: 2.22.0_eslint@7.4.0
   jest: 26.1.0
   jest-matcher-css: 1.1.0
-  lodash: 4.17.19
   mocha: 8.0.1
   postcss: 7.0.32
   source-map: 0.7.3

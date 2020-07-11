@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-custom-native",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "Write your Tailwind CSS configuration file with your own custom utilities as though they were native to the framework",
   "author": "Jacob Babich <jacobbabichpublic+git@gmail.com>",
   "keywords": [
@@ -29,6 +29,7 @@
     "prepublish": "tsc"
   },
   "dependencies": {
+    "lodash": "^4.17.19",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
@@ -43,7 +44,6 @@
     "eslint-plugin-import": "^2.22.0",
     "jest": "^26.1.0",
     "jest-matcher-css": "^1.1.0",
-    "lodash": "^4.17.19",
     "mocha": "^8.0.1",
     "postcss": "^7.0.32",
     "source-map": "^0.7.3",
