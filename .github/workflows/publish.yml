@@ -19,6 +19,6 @@ jobs:
           version: 5.3.0
       - run: pnpm install
       - run: pnpm run test
-      - run: pnpm publish
+      - run: pnpm publish --publish-branch main
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
