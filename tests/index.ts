@@ -4,12 +4,12 @@ import { merge } from "lodash";
 import { describe, it } from "mocha";
 import postcss from "postcss";
 import tailwindcss from "tailwindcss";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import tailwindcssPseudo from "tailwindcss-pseudo";
 
 import thisPlugin from "../src/index";
 import { TailwindCSSConfig } from "../src/types";
-
 
 const generatePluginCss = (config: TailwindCSSConfig): Promise<string> => postcss(
 	tailwindcss(
@@ -47,7 +47,7 @@ describe("tailwindcss-custom-native", () => {
 				thisPlugin,
 			],
 		}),
-			`
+		`
 			.mix-blend-mode-screen {
 				mix-blend-mode: screen;
 			}
@@ -101,8 +101,6 @@ describe("tailwindcss-custom-native", () => {
 			}
 		`);
 	});
-
-	
 
 	it("rename with responsive variants", async () => {
 		assertCSS(await generatePluginCss({
@@ -176,8 +174,6 @@ describe("tailwindcss-custom-native", () => {
 		`);
 	});
 
-	
-
 	it("property with active variants", async () => {
 		assertCSS(await generatePluginCss({
 			theme: {
@@ -223,8 +219,6 @@ describe("tailwindcss-custom-native", () => {
 		`);
 	});
 
-	
-
 	it("multiple custom utilities with rename", async () => {
 		assertCSS(await generatePluginCss({
 			theme: {
@@ -261,9 +255,6 @@ describe("tailwindcss-custom-native", () => {
 			}
 		`);
 	});
-
-	
-	
 
 	it("can use other plugins (tailwindcss-pseudo)'s variants", async () => {
 		assertCSS(await generatePluginCss({
@@ -330,10 +321,6 @@ describe("tailwindcss-custom-native", () => {
 		`);
 	});
 
-	
-	
-	
-
 	it("negative properties are prefixed with - without variants", async () => {
 		assertCSS(await generatePluginCss({
 			theme: {
@@ -374,9 +361,6 @@ describe("tailwindcss-custom-native", () => {
 		`);
 	});
 
-	
-	
-
 	it("negative properties are prefixed with - when renamed without variants", async () => {
 		assertCSS(await generatePluginCss({
 			theme: {
@@ -415,9 +399,6 @@ describe("tailwindcss-custom-native", () => {
 			}
 		`);
 	});
-
-	
-	
 
 	it("negative properties are prefixed with - with variants", async () => {
 		assertCSS(await generatePluginCss({
@@ -482,11 +463,6 @@ describe("tailwindcss-custom-native", () => {
 			}
 		`);
 	});
-
-	
-
-	
-	
 
 	it("negative properties are prefixed with - when renamed with variants", async () => {
 		assertCSS(await generatePluginCss({
@@ -560,7 +536,4 @@ describe("tailwindcss-custom-native", () => {
 			}
 		`);
 	});
-
-	
 });
-

@@ -1,4 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { kebabCase } from "lodash";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import prefixNegativeModifiers from "tailwindcss/lib/util/prefixNegativeModifiers";
 import plugin from "tailwindcss/plugin";
@@ -34,10 +36,12 @@ const thisPlugin: ThisPlugin = plugin(({
 			const className: string = rename === "" ? name : prefixNegativeModifiers(rename, name);
 
 			css[`.${e(className)}`] = {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				[property!]: value,
 			};
 
 			return css;
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		}, {} as { [property: string]: any });
 
 		addUtilities(utilities, { variants: variants(key, []), ...addUtilitiesOptions });

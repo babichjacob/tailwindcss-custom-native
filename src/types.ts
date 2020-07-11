@@ -73,7 +73,6 @@ export type PluginTools = {
 
 export type BasicPlugin = (args: PluginTools) => void;
 
-
 export interface WrappedPlugin {
 	handler: BasicPlugin;
 	config: TailwindCSSConfig;
@@ -83,7 +82,6 @@ export type PluginFunction<Options> = (options: Options) => BasicPlugin;
 export type ConfigFunction<Options> = (options: Options) => TailwindCSSConfig;
 export type PluginWithOptions<Options> = (pluginFunction: PluginFunction<Options>, configFunction?: ConfigFunction<Options>) => BasicPlugin;
 export type Plugin<Options = null> = Options extends null ? (BasicPlugin | WrappedPlugin) : PluginWithOptions<Options>;
-
 
 export interface CreatePlugin {
 	(plugin: BasicPlugin, config?: TailwindCSSConfig): WrappedPlugin;
