@@ -48,5 +48,4 @@ const thisPlugin: ThisPlugin = plugin(({
 	});
 });
 
-export const tailwindcssCustomNative = thisPlugin;
-export default thisPlugin;
+export = thisPlugin;
