@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-custom-native",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Write your Tailwind CSS configuration file with your own custom utilities as though they were native to the framework",
   "author": "Jacob Babich <jacobbabichpublic+git@gmail.com>",
   "keywords": [
@@ -30,25 +30,24 @@
   },
   "dependencies": {
     "lodash": "^4.17.19",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.5.2"
   },
   "devDependencies": {
+    "@navith/tailwindcss-plugin-author-types": "^0.0.4",
     "@types/assert": "^1.5.1",
-    "@types/lodash": "^4.14.157",
+    "@types/lodash": "^4.14.158",
     "@types/mocha": "^7.0.2",
-    "@typescript-eslint/eslint-plugin": "^3.6.0",
-    "@typescript-eslint/parser": "^3.6.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/parser": "^3.7.0",
     "cross-env": "^7.0.2",
-    "eslint": "^7.4.0",
+    "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "jest": "^26.1.0",
     "jest-matcher-css": "^1.1.0",
     "mocha": "^8.0.1",
     "postcss": "^7.0.32",
-    "source-map": "^0.7.3",
     "tailwindcss-pseudo": "^1.0.3",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   }
 }

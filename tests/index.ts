@@ -1,3 +1,4 @@
+import { TailwindCSSConfig } from "@navith/tailwindcss-plugin-author-types";
 import assert from "assert";
 import cssMatcher from "jest-matcher-css";
 import { merge } from "lodash";
@@ -9,7 +10,6 @@ import tailwindcss from "tailwindcss";
 import tailwindcssPseudo from "tailwindcss-pseudo";
 
 import thisPlugin from "../src/index";
-import { TailwindCSSConfig } from "../src/types";
 
 const generatePluginCss = (config: TailwindCSSConfig): Promise<string> => postcss(
 	tailwindcss(
