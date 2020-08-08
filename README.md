@@ -340,10 +340,17 @@ module.exports = {
 }
 ```
 
-## 📄 License and Contributing
+## 😵 Help! I have a question
 
-MIT licensed. There are no contributing guidelines. Just do whatever you want to point out an issue or feature request and I'll work with it.
+[Create an issue](https://github.com/babichjacob/tailwindcss-custom-native/issues/new) and I'll try to help.
 
+## 😡 Fix! There is something that needs improvement
+
+[Create an issue](https://github.com/babichjacob/tailwindcss-custom-native/issues/new) or [pull request](https://github.com/babichjacob/tailwindcss-custom-native/pulls) and I'll try to fix.
+
+## 📄 License
+
+MIT
 
 ---
 
