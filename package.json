@@ -26,7 +26,7 @@
   "scripts": {
     "lint": "eslint --fix ./src/**/*.ts ./tests/**/*.ts",
     "test": "cross-env TS_NODE_FILES=true mocha --require ts-node/register 'tests/**/*.ts'",
-    "prepublish": "tsc"
+    "prepare": "tsc"
   },
   "dependencies": {
     "lodash": "^4.17.19",
