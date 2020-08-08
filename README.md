@@ -1,14 +1,15 @@
+# 🧩 Tailwind CSS Custom Native Utilities
 This Tailwind CSS plugin allows you to write configuration for your own custom utility in the `theme` and `variants` section of your config as though it were actually part of the framework. Just define it with a single line in the `plugins` section!
 
 This should allow you to finally kill off leftover CSS and inline styles that have no accompanying plugin-made or native utility. Although you can replace other [plugins](https://github.com/aniftyco/awesome-tailwindcss#plugins) with this one, it's probably a good idea to use those instead because they're purpose-built and likely to create a better output.
 
-## Installation
+# 💻 Installation
 
 ```bash
 npm install --save-dev tailwindcss-custom-native
 ```
 
-## Basic usage
+# 🛠 Basic usage
 
 With this Tailwind configuration,
 
@@ -92,7 +93,7 @@ you get this additional CSS:
 }
 ```
 
-## Advanced usage
+# ⚙️ Full configuration
 
 This plugin expects configuration of the form
 
@@ -125,7 +126,7 @@ Where each parameter means:
 
   As of Tailwind 1.2.0, this just means the [`respectPrefix` and `respectImportant`](https://tailwindcss.com/docs/plugins/#prefix-and-important-preferences) options
 
-## Examples
+# 📚 Examples
 
 Specify `rename: ''` so you can write `blur-4` and `grayscale` instead of `filter-blur-4` and `filter-grayscale`:
 
@@ -339,7 +340,7 @@ module.exports = {
 }
 ```
 
-## License and Contributing
+## 📄 License and Contributing
 
 MIT licensed. There are no contributing guidelines. Just do whatever you want to point out an issue or feature request and I'll work with it.
 
