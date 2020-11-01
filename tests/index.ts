@@ -115,6 +115,13 @@ describe("tailwindcss-custom-native", () => {
 						"blur-4": "blur(1rem)",
 					},
 				},
+
+				screens: {
+					"sm": "640px",
+					"md": "768px",
+					"lg": "1024px",
+					"xl": "1280px",
+				}
 			},
 			variants: {
 				filter: ["responsive"],
